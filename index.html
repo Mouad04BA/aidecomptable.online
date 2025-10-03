@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accounting Assistant - Coming Soon</title>
     <style>
-        /* Full screen background image */
+        /* Full screen background with opacity */
         body, html {
             margin: 0;
             padding: 0;
@@ -15,16 +15,18 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: url('Accounting.png') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            background: rgba(255, 255, 255, 0.8) url('Accounting.png') no-repeat center center fixed;
+            background-size: 40%; /* sghira shwia */
+            background-blend-mode: lighten; /* khfifa l'image */
+            color: #000; /* texte noir */
         }
 
         /* Text styling */
         .coming-soon {
             font-size: 4rem;
+            font-weight: bold; /* gras */
             text-align: center;
+            text-shadow: 1px 1px 3px rgba(255,255,255,0.5); /* shwia effet pour lisibilité */
         }
 
         /* Responsive for mobile */
