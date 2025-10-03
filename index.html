@@ -17,26 +17,24 @@
         color: #000;
         display: flex;
         flex-direction: column;
-        justify-content: space-between; /* top content + bottom box */
+        justify-content: space-between;
         align-items: center;
         text-align: center;
         padding: 20px 0;
     }
 
     .header {
-        margin-top: 50px; /* push a bit down */
+        margin-top: 50px;
     }
 
     .coming-soon-text {
         font-size: 4rem;
         font-weight: bold;
-        text-shadow: 1px 1px 3px rgba(255,255,255,0.5);
         margin: 10px 0;
     }
 
-    /* Make "Accounting Assistant" blue */
     .title-blue {
-        color: #003366; /* blue color */
+        color: #003366; /* bleu pour "Accounting Assistant" */
     }
 
     /* Goals box at bottom */
@@ -47,7 +45,7 @@
         padding: 20px 30px;
         border-radius: 10px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        margin-bottom: 30px; /* distance from bottom */
+        margin-bottom: 30px;
     }
 
     .goal {
@@ -60,6 +58,7 @@
         color: #003366;
     }
 
+    /* Responsive */
     @media (max-width: 768px) {
         .coming-soon-text {
             font-size: 2.5rem;
@@ -70,6 +69,9 @@
         .goals {
             padding: 15px 20px;
         }
+        .coming-soon-gif {
+            width: 200px; /* ajuste taille GIF mobile */
+        }
     }
 </style>
 </head>
@@ -77,7 +79,8 @@
 
 <div class="header">
     <div class="coming-soon-text title-blue">Accounting Assistant</div>
-    <div class="coming-soon-text">COMING SOON !</div>
+    <!-- Remplacer le texte "COMING SOON !" par GIF -->
+    <img src="coming-soon.gif" alt="COMING SOON !" class="coming-soon-gif">
 </div>
 
 <div class="goals">
