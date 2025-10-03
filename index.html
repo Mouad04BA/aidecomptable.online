@@ -1,93 +1,222 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Accounting Assistant - Coming Soon</title>
-<style>
-    body, html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        width: 100%;
-        font-family: Arial, sans-serif;
-        background: rgba(255, 255, 255, 0.8) url('Accounting.png') no-repeat center top fixed;
-        background-size: 40%;
-        background-blend-mode: lighten;
-        color: #000;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
-        padding: 20px 0;
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aide Comptable</title>
+
+  <style>
+    :root{
+      --accent: #0b1220;
+      --overlay-light: rgba(255,255,255,0.35);
+      --glass: rgba(255,255,255,0.75);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{
+      height:100%;
+      font-family:Inter, Arial, sans-serif;
+      overflow-x:hidden;
+      display:flex;
+      flex-direction:column;
     }
 
-    .header {
-        margin-top: 50px;
+    /* VIDEO BG */
+    .bg-video{
+      position:fixed; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      z-index:-2;
+    }
+    .overlay{
+      position:fixed; inset:0;
+      background:var(--overlay-light);
+      z-index:-1;
+      backdrop-filter: blur(1px);
     }
 
-    .coming-soon-text {
-        font-size: 4rem;
-        font-weight: bold;
-        margin: 10px 0;
+    main.hero{
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:2rem;
+      text-align:center;
+      color:var(--accent);
     }
 
-    .title-blue {
-        color: #003366; /* bleu pour "Accounting Assistant" */
+    .card{
+      position:relative;
+      z-index:1;
+      width:100%;
+      max-width:900px;
+      display:flex;
+      flex-direction:column;
+      gap:1rem;
+      align-items:center;
+      background: rgba(255,255,255,0.6);
+      border-radius:14px;
+      padding:1.5rem;
+      box-shadow: 0 10px 30px rgba(10,10,20,0.12);
     }
 
-    /* Goals box at bottom */
-    .goals {
-        width: 90%;
-        max-width: 600px;
-        background: rgba(255,255,255,0.95);
-        padding: 20px 30px;
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        margin-bottom: 30px;
+    .logo {
+      width:200px;
+      margin-bottom:0.8rem;
+    }
+    h1{
+      font-size:clamp(20px, 4.5vw, 36px);
+      font-weight:800;
+      margin-bottom:0.5rem;
+    }
+    .intro { font-size:15px; line-height:1.5; color:#0b1220; opacity:0.95; }
+
+    .full-info{
+      margin-top:1rem;
+      background:var(--glass);
+      padding:1rem;
+      border-radius:10px;
+      color:#0b1220;
+      line-height:1.5;
+      text-align:left;
     }
 
-    .goal {
-        margin-bottom: 15px;
-        font-size: 1.1rem;
+    footer {
+      text-align:center;
+      font-size:13px;
+      color:#0b1220;
+      opacity:0.75;
+      padding:0.8rem;
+      background:rgba(255,255,255,0.55);
     }
-
-    .goal-title {
-        font-weight: bold;
-        color: #003366;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-        .coming-soon-text {
-            font-size: 2.5rem;
-        }
-        .goal {
-            font-size: 1rem;
-        }
-        .goals {
-            padding: 15px 20px;
-        }
-        .coming-soon-gif {
-            width: 200px; /* ajuste taille GIF mobile */
-        }
-    }
-</style>
+  </style>
 </head>
 <body>
+  <!-- VIDEO -->
+  <video autoplay muted loop playsinline class="bg-video" id="bgVideo">
+    <source src="background.mp4" type="video/mp4">
+    Votre navigateur ne supporte pas la vidéo en arrière-plan.
+  </video>
+  <div class="overlay"></div>
 
-<div class="header">
-    <div class="coming-soon-text title-blue">Accounting Assistant</div>
-    <!-- Remplacer le texte "COMING SOON !" par GIF -->
-    <img src="coming-soon.gif" alt="COMING SOON !" class="coming-soon-gif">
-</div>
+  <main class="hero" role="main">
+    <div class="card" aria-labelledby="title">
+      <img src="logo.png" alt="Aide Comptable logo" class="logo">
+      <h1 id="title">Aide Comptable </h1>
 
-<div class="goals">
-    <div class="goal"><span class="goal-title">AI-Powered Practice:</span> Simulators analyze real-world scenarios with instant journal entries and explanations.</div>
-    <div class="goal"><span class="goal-title">Essential Tools:</span> Tax calculators, fiscal calendar, and searchable Moroccan Chart of Accounts.</div>
-    <div class="goal"><span class="goal-title">Prepare for Your Career:</span> Gain practical skills and access official documentation.</div>
-</div>
+      <p class="intro">
+        Plateforme éducative gratuite pour apprendre la comptabilité marocaine (selon le CGNC) :
+        cours interactifs, simulateurs IA, plan comptable, outils fiscaux et plus.
+      </p>
+<main class="hero" role="main">
+  <div class="card" style="padding:0; background:transparent; box-shadow:none;">
+    <img src="animated.gif" alt="Coming Soon GIF" style="width:100%; max-width:500px; border-radius:12px;">
+  </div>
+</main>
+      <!-- Détails -->
+      <div class="full-info">
+        <strong>But du site :</strong>
+        <p>
+          Le but principal de <strong>"Aide Comptable"</strong> est d'offrir une plateforme éducative gratuite pour apprendre la comptabilité marocaine (CGNC),
+          destinée aux étudiants, débutants et praticiens souhaitant comprendre la comptabilité générale et la fiscalité marocaine de façon simple et pratique.
+        </p>
 
+        <strong>Services proposés :</strong>
+        <ul>
+          <li>Cours interactifs (Bilan, CPC, amortissement, TVA, paie) avec quiz.</li>
+          <li>Simulateurs IA : écritures comptables automatiques, analyses fiscales, questions fiscales.</li>
+          <li>Plan comptable interactif, calculateurs (TVA, IS, IR, CNSS) et calendrier fiscal.</li>
+          <li>Ressources officielles et guides pratiques. Offres d'emploi à venir.</li>
+        </ul>
+        <p>Le site sera multilingue : Français, Arabe et Anglais.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <section style="max-width:400px; margin:2rem auto; background:rgba(255,255,255,0.85); padding:1rem 1.5rem; border-radius:12px; text-align:center; box-shadow:0 8px 20px rgba(10,10,20,0.15);">
+  <h2 style="font-size:1.5rem; font-weight:700; margin-bottom:0.5rem;">Contactez-Nous</h2>
+  <p style="font-size:0.875rem; color:#0b1220; margin-bottom:1rem;">Email, WhatsApp ou nos réseaux sociaux</p>
+
+  <!-- Contact direct -->
+  <div style="display:flex; flex-direction:column; gap:0.5rem; margin-bottom:1rem;">
+    <a href="mailto:aidecomptable212@gmail.com" style="display:flex; align-items:center; justify-content:center; gap:0.5rem; padding:0.5rem; border-radius:8px; background:#f5f5f5; text-decoration:none; color:#0b1220; transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      <!-- Email icon SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="#0b1220" stroke-width="2" viewBox="0 0 24 24"><path d="M16 12H8m0 0l-4-4m4 4l4-4M4 16v-8a2 2 0 012-2h12a2 2 0 012 2v8a2 2 0 01-2 2H6a2 2 0 01-2-2z"/></svg>
+      Email: aidecomptable212@gmail.com
+    </a>
+    <a href="https://wa.me/212645277163" target="_blank" style="display:flex; align-items:center; justify-content:center; gap:0.5rem; padding:0.5rem; border-radius:8px; background:#f5f5f5; text-decoration:none; color:#0b1220; transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      <!-- WhatsApp icon SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 448 512"><path d="M380.9 97.1C339-7 254.8-21.5 177.3 17.6c-79 40-108.2 131.7-67.1 212.3l-32 97.3 100.3-32.5c79.4 42.5 174.3 16.7 216.3-62.6 41-79 16.8-174.7-63.9-216.4zM177.3 319c-53.7 0-97.3-43.6-97.3-97.3S123.6 124.3 177.3 124.3 274.6 168 274.6 221.7 231 319 177.3 319zm121.1-84.4l-23.7-11.1c-5.8-2.7-12.5-.6-15.2 5.1l-8.8 17.5c-2.7 5.8-.6 12.5 5.1 15.2l23.7 11.1c5.8 2.7 12.5.6 15.2-5.1l8.8-17.5c2.7-5.8.6-12.5-5.1-15.2z"/></svg>
+      WhatsApp: +212 645 277 163
+    </a>
+  </div>
+
+  <!-- Réseaux sociaux -->
+  <div style="display:flex; justify-content:center; gap:0.5rem;">
+    <a href="https://www.linkedin.com/in/aide-comptable-567182388/" target="_blank" style="background:#0A66C2; padding:0.4rem; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white;">
+      <!-- LinkedIn SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zm-46.44-338.6C24 109.4 0 85.36 0 55.48S24 1.6 53.84 1.6 107.7 25.64 107.7 55.48 83.68 109.4 53.84 109.4zM447.9 448h-92.68V302.4c0-34.7-12.42-58.3-43.52-58.3-23.73 0-37.85 15.98-44.06 31.45-2.27 5.53-2.84 13.23-2.84 20.96V448h-92.7s1.24-249.6 0-275.1h92.7v39c12.3-19 34.2-46 83.2-46 60.7 0 106.4 39.6 106.4 124.7V448z"/></svg>
+    </a>
+    <a href="https://web.facebook.com/people/Aide-Comptable/61581379155050/" target="_blank" style="background:#1877F2; padding:0.4rem; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white;">
+      <!-- Facebook SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06H293V6.26S267.48 0 243.14 0C182.6 0 140.03 41.51 140.03 117.34V195.3H56.89V288h83.14v224h100.2V288z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/aide.comptable212/" target="_blank" style="background:#E1306C; padding:0.4rem; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white;">
+      <!-- Instagram SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189c-41.1 0-74.1-33-74.1-74.1S183 181.8 224.1 181.8 298.1 214.8 298.1 255.9 265.2 330 224.1 330zm146.4-194.7c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9z"/></svg>
+    </a>
+    <a href="https://x.com/aide_comptable" target="_blank" style="background:#1DA1F2; padding:0.4rem; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white;">
+      <!-- X SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 512 512"><path d="M459.4 151.7c.32 4.5 .32 9.1 .32 13.6 0 138.7-105.6 298.7-298.7 298.7-59.5 0-114.9-17.2-161.5-47 8.4 .97 16.8 1.28 25.4 1.28 49.3 0 94.7-16.8 130.7-45-46.1-1-84.8-31.3-98.1-73 6.4 .97 12.8 1.6 19.5 1.6 9.4 0 18.8-1.28 27.6-3.64-48.2-9.7-84.5-52.1-84.5-103v-1.28c14.1 7.84 30.3 12.8 47.5 13.4-28.1-18.8-46.5-51-46.5-87.3 0-19.1 5.2-37.1 14.1-52.6 51.8 63.5 129.3 105.1 216.7 109.5-1.6-7.68-2.56-15.6-2.56-23.5 0-57.4 46.5-103.9 103.9-103.9 29.9 0 56.9 12.8 75.9 33.1 23.5-4.5 45.7-13.1 65.5-24.9-7.68 24-24-44.4-48.2-59.3z"/></svg>
+    </a>
+  </div>
+</section>
+    © 2025 Aide Comptable
+  </footer>
 </body>
+<!-- Bouton Son -->
+<button id="audioBtn" style="
+  position: fixed; 
+  bottom: 1rem; 
+  right: 1rem; 
+  background: rgba(11,18,32,0.8); 
+  color: white; 
+  border: none; 
+  padding: 0.5rem 0.8rem; 
+  border-radius: 50%; 
+  cursor: pointer; 
+  z-index: 10;
+">
+  🔊
+</button>
+
+<!-- Audio -->
+<audio id="bgAudio" loop>
+  <source src="background.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const audio = document.getElementById('bgAudio');
+  const btn = document.getElementById('audioBtn');
+
+  // Volume initial à 60%
+  audio.volume = 0.6;
+
+  // Tentative de lecture automatique
+  audio.play().catch(() => {
+    console.log("Lecture automatique bloquée par le navigateur. L'utilisateur devra cliquer sur le bouton.");
+  });
+
+  // Bouton mute/unmute
+  btn.addEventListener('click', () => {
+    if(audio.paused){
+      audio.play();
+      btn.textContent = '🔊';
+    } else {
+      audio.pause();
+      btn.textContent = '🔇';
+    }
+  });
+</script>
+
 </html>
